@@ -31,11 +31,11 @@ And a few other functions:
     diff, simp       Symbolic differentiation and simplification
 """
 
-from utils import (
+from .utils import (
     removeall, unique, first, argmax, probability,
     isnumber, issequence, Symbol, Expr, expr, subexpressions
 )
-import agents
+from . import agents
 
 import itertools
 import random

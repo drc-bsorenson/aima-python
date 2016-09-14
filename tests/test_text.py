@@ -2,8 +2,8 @@ import pytest
 import os
 import random
 
-from text import *  # noqa
-from utils import isclose, DataFile
+from aima.text import *  # noqa
+from aima.utils import isclose, DataFile
 
 
 def test_unigram_text_model():

@@ -1,5 +1,5 @@
 import pytest
-from csp import *   #noqa
+from aima.csp import *   #noqa
 
 
 def test_backtracking_search():

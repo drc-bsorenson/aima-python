@@ -1,5 +1,5 @@
 import pytest
-from learning import parse_csv, weighted_mode, weighted_replicate
+from aima.learning import parse_csv, weighted_mode, weighted_replicate
 
 
 def test_parse_csv():

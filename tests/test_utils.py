@@ -1,5 +1,5 @@
 import pytest
-from utils import *  # noqa
+from aima.utils import *  # noqa
 
 
 def test_removeall_list():

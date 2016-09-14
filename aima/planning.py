@@ -1,8 +1,8 @@
 """Planning (Chapters 10-11)
 """
 
-from utils import Expr, expr, first
-from logic import FolKB
+from aima.utils import Expr, expr, first
+from aima.logic import FolKB
 
 
 class PDLL:

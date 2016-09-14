@@ -3,8 +3,8 @@
 from collections import namedtuple
 import random
 
-from utils import argmax
-from canvas import Canvas
+from .utils import argmax
+from .canvas import Canvas
 
 infinity = float('inf')
 GameState = namedtuple('GameState', 'to_move, utility, board, moves')

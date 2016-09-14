@@ -1,9 +1,9 @@
 import pytest
-import nlp
-from nlp import loadPageHTML, stripRawHTML, determineInlinks, findOutlinks, onlyWikipediaURLS
-from nlp import expand_pages, relevant_pages, normalize, ConvergenceDetector, getInlinks
-from nlp import getOutlinks, Page, HITS
-from nlp import Rules, Lexicon
+from aima import nlp
+from aima.nlp import loadPageHTML, stripRawHTML, determineInlinks, findOutlinks, onlyWikipediaURLS
+from aima.nlp import expand_pages, relevant_pages, normalize, ConvergenceDetector, getInlinks
+from aima.nlp import getOutlinks, Page, HITS
+from aima.nlp import Rules, Lexicon
 # Clumsy imports because we want to access certain nlp.py globals explicitly, because
 # they are accessed by function's within nlp.py
 
@@ -35,8 +35,8 @@ pE = Page("E", 5, 2, [],["A","B","C","D","F"])
 pF = Page("F", 6, 1, ["E"],[])
 pageDict = {pA.address:pA,pB.address:pB,pC.address:pC,
             pD.address:pD,pE.address:pE,pF.address:pF}
-nlp.pagesIndex = pageDict
-nlp.pagesContent ={pA.address:testHTML,pB.address:testHTML2,
+aima.nlp.pagesIndex = pageDict
+aima.nlp.pagesContent ={pA.address:testHTML,pB.address:testHTML2,
               pC.address:testHTML,pD.address:testHTML2,
               pE.address:testHTML,pF.address:testHTML2}
 
@@ -87,12 +87,12 @@ def test_relevant_pages():
 
 def test_normalize():
     normalize( pageDict )
-    print(page.hub for addr,page in nlp.pagesIndex.items())
+    print(page.hub for addr,page in aima.nlp.pagesIndex.items())
     expected_hub = [1/91,2/91,3/91,4/91,5/91,6/91] # Works only for sample data above
     expected_auth = list(reversed(expected_hub))
-    assert len(expected_hub) == len(expected_auth) == len(nlp.pagesIndex)
-    assert expected_hub == [page.hub for addr,page in sorted(nlp.pagesIndex.items())]
-    assert expected_auth == [page.authority for addr,page in sorted(nlp.pagesIndex.items())]
+    assert len(expected_hub) == len(expected_auth) == len(aima.nlp.pagesIndex)
+    assert expected_hub == [page.hub for addr,page in sorted(aima.nlp.pagesIndex.items())]
+    assert expected_auth == [page.authority for addr,page in sorted(aima.nlp.pagesIndex.items())]
 
 def test_detectConvergence():
     # run detectConvergence once to initialise history
@@ -100,12 +100,12 @@ def test_detectConvergence():
     convergence()
     assert convergence() # values haven't changed so should return True
     # make tiny increase/decrease to all values
-    for _, page in nlp.pagesIndex.items():
+    for _, page in aima.nlp.pagesIndex.items():
         page.hub += 0.0003
         page.authority += 0.0004
     # retest function with values. Should still return True
     assert convergence()
-    for _, page in nlp.pagesIndex.items():
+    for _, page in aima.nlp.pagesIndex.items():
         page.hub += 3000000
         page.authority += 3000000
     # retest function with values. Should now return false

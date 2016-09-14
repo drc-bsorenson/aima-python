@@ -1,5 +1,5 @@
 import pytest
-from mdp import *  # noqa
+from aima.mdp import *  # noqa
 
 
 def test_value_iteration():

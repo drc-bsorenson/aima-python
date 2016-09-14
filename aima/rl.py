@@ -2,8 +2,8 @@
 """
 
 from collections import defaultdict
-from utils import argmax
-from mdp import MDP, policy_evaluation
+from aima.utils import argmax
+from aima.mdp import MDP, policy_evaluation
 
 import random
 

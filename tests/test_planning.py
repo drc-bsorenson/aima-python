@@ -1,6 +1,6 @@
-from planning import *
-from utils import expr
-from logic import FolKB
+from aima.planning import *
+from aima.utils import expr
+from aima.logic import FolKB
 
 
 def test_action():
